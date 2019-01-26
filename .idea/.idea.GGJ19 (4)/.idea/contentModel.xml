@@ -32,9 +32,29 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Bubble.cs" t="Include" />
+          <e p="BubbleShooter.cs" t="Include" />
+          <e p="CamFollowPlayer.cs" t="Include" />
+          <e p="CharacterControl.cs" t="Include" />
+          <e p="FaceMouse.cs" t="Include" />
+          <e p="FollowPlayer.cs" t="Include" />
           <e p="GameUIManager.cs" t="Include" />
-          <e p="GUIManager.cs" t="Include" />
+          <e p="MenuGUIManager.cs" t="Include" />
+          <e p="Path.cs" t="Include" />
           <e p="PauseMenu.cs" t="Include" />
+          <e p="ToggleMap.cs" t="Include" />
+          <e p="Underground.cs" t="Include" />
+        </e>
+        <e p="UB" t="Include">
+          <e p="EffectBase.cs" t="Include" />
+          <e p="HighEndMobilePostEffects" t="Include">
+            <e p="Shaders" t="Include">
+              <e p="D2Fogs.shader" t="Include" />
+              <e p="D2FogsNoiseTex.shader" t="Include" />
+              <e p="D2FogsNoiseTexPE.cs" t="Include" />
+              <e p="D2FogsPE.cs" t="Include" />
+            </e>
+          </e>
         </e>
       </e>
       <e p="GGJ19 (4).sln" t="IncludeFlat" />
