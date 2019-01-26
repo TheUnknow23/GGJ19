@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Matteo\.Rider2017.3\system\resharper-host\local\Transient\ReSharperHost\v11\SolutionCaches\_GGJ19 (4).-145160723.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Matteo\Desktop\AJarOfJamGames\GGJ19\GGJ19(1)\GGJ19 (4)" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="EZ Camera Shake" t="Include">
+          <e p="Demo" t="Include">
+            <e p="Sample Scripts" t="Include">
+              <e p="ShakeByDistance.cs" t="Include" />
+              <e p="ShakeOnKeyPress.cs" t="Include" />
+              <e p="ShakeOnTrigger.cs" t="Include" />
+            </e>
+            <e p="ShakeDemo.cs" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="CameraShakeInstance.cs" t="Include" />
+            <e p="CameraShakePresets.cs" t="Include" />
+            <e p="CameraShaker.cs" t="Include" />
+            <e p="Utilities" t="Include">
+              <e p="CameraUtilities.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Plugins" t="Include">
+          <e p="Editor" t="Include">
+            <e p="JetBrains" t="Include">
+              <e p="Unity3DRider.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="GameUIManager.cs" t="Include" />
+          <e p="GUIManager.cs" t="Include" />
+          <e p="PauseMenu.cs" t="Include" />
+        </e>
+      </e>
+      <e p="GGJ19 (4).sln" t="IncludeFlat" />
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>
