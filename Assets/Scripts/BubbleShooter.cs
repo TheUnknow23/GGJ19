@@ -6,10 +6,20 @@ public class BubbleShooter : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    
+    public GameUIManager GameUIManager;
+
+    private bool pause = false;
+
+    void Start()
+    {
+        pause = false;
+        Physics2D.IgnoreLayerCollision(8, 12);
+    }
+
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        pause = GameUIManager.GameIsPaused;
+        if (Input.GetButtonDown("Fire1")&&!pause)
         {
             ShootBubble();
         }

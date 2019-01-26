@@ -61,6 +61,7 @@
     <Compile Include="Assets\EZ Camera Shake\Scripts\CameraShakePresets.cs" />
     <Compile Include="Assets\EZ Camera Shake\Scripts\CameraShaker.cs" />
     <Compile Include="Assets\EZ Camera Shake\Scripts\Utilities\CameraUtilities.cs" />
+    <Compile Include="Assets\Scripts\AlgaeBehaviour.cs" />
     <Compile Include="Assets\Scripts\Bubble.cs" />
     <Compile Include="Assets\Scripts\BubbleShooter.cs" />
     <Compile Include="Assets\Scripts\CamFollowPlayer.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
     <Compile Include="Assets\Scripts\GameUIManager.cs" />
     <Compile Include="Assets\Scripts\MenuGUIManager.cs" />
+    <Compile Include="Assets\Scripts\OilBehaviour.cs" />
     <Compile Include="Assets\Scripts\Path.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\ToggleMap.cs" />
@@ -76,8 +78,12 @@
     <Compile Include="Assets\UB\EffectBase.cs" />
     <Compile Include="Assets\UB\HighEndMobilePostEffects\Shaders\D2FogsNoiseTexPE.cs" />
     <Compile Include="Assets\UB\HighEndMobilePostEffects\Shaders\D2FogsPE.cs" />
+    <Compile Include="Assets\Wall.cs" />
     <None Include="Assets\UB\HighEndMobilePostEffects\Shaders\D2Fogs.shader" />
     <None Include="Assets\UB\HighEndMobilePostEffects\Shaders\D2FogsNoiseTex.shader" />
+    <Reference Include="Cinemachine">
+      <HintPath>C:/Users/Matteo/Desktop/AJarOfJamGames/GGJ19/GGJ19(1)/GGJ19 (4)/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Matteo/Desktop/AJarOfJamGames/GGJ19/GGJ19(1)/GGJ19 (4)/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -87,17 +93,14 @@
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>C:/Users/Matteo/Desktop/AJarOfJamGames/GGJ19/GGJ19(1)/GGJ19 (4)/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>C:/Users/Matteo/Desktop/AJarOfJamGames/GGJ19/GGJ19(1)/GGJ19 (4)/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/Users/Matteo/Desktop/AJarOfJamGames/GGJ19/GGJ19(1)/GGJ19 (4)/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>C:/Users/Matteo/Desktop/AJarOfJamGames/GGJ19/GGJ19(1)/GGJ19 (4)/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>C:/Users/Matteo/Desktop/AJarOfJamGames/GGJ19/GGJ19(1)/GGJ19 (4)/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>C:/Users/Matteo/Desktop/AJarOfJamGames/GGJ19/GGJ19(1)/GGJ19 (4)/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -663,6 +666,26 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:\Program Files\Unity\Editor\Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Editor\Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:\Program Files\Unity\Editor\Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Editor\Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:\Program Files\Unity\Editor\Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

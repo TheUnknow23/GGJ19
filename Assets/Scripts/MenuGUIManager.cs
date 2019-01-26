@@ -13,11 +13,21 @@ public class MenuGUIManager : MonoBehaviour
     public void LoadGame()
     {
         StartCoroutine(LoadAsynchronous(SceneManager.GetActiveScene().buildIndex+1));
+        StartCoroutine(UnloadAsynchronous(SceneManager.GetActiveScene().buildIndex));
     }
 
     IEnumerator LoadAsynchronous(int sceneIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
+    }
+    IEnumerator UnloadAsynchronous(int sceneIndex)
+    {
+        AsyncOperation operation = SceneManager.UnloadSceneAsync(sceneIndex);
 
         while (!operation.isDone)
         {

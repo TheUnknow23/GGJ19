@@ -32,6 +32,7 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="AlgaeBehaviour.cs" t="Include" />
           <e p="Bubble.cs" t="Include" />
           <e p="BubbleShooter.cs" t="Include" />
           <e p="CamFollowPlayer.cs" t="Include" />
@@ -40,6 +41,7 @@
           <e p="FollowPlayer.cs" t="Include" />
           <e p="GameUIManager.cs" t="Include" />
           <e p="MenuGUIManager.cs" t="Include" />
+          <e p="OilBehaviour.cs" t="Include" />
           <e p="Path.cs" t="Include" />
           <e p="PauseMenu.cs" t="Include" />
           <e p="ToggleMap.cs" t="Include" />
@@ -56,6 +58,7 @@
             </e>
           </e>
         </e>
+        <e p="Wall.cs" t="Include" />
       </e>
       <e p="GGJ19 (4).sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />

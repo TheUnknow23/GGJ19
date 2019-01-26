@@ -3,7 +3,7 @@ using System.Collections;
 using EZCameraShake;
 
 public class ToggleMap : MonoBehaviour {
-    public Camera mainCam;
+    public GameObject mainCam;
     public GameObject canvas;
 
     bool mapVisible = false;
@@ -13,6 +13,7 @@ public class ToggleMap : MonoBehaviour {
     // Use this for initialization
     void Start () {
         canvas.SetActive(false);
+        mainCam.SetActive(true);
 
     }
     
@@ -23,10 +24,12 @@ public class ToggleMap : MonoBehaviour {
         {
             if (mapVisible == true) {
                 canvas.SetActive(false);
+                mainCam.SetActive(true);
                 mapVisible = false;
             }
             else {
                 canvas.SetActive(true);
+                mainCam.SetActive(false);
                 mapVisible = true;
             }
         }

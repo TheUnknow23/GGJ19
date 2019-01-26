@@ -7,6 +7,9 @@ TagManager:
   - Waypoint
   - Floating obstacle
   - Wall
+  - Algae
+  - Bubble
+  - MouseCamera
   layers:
   - Default
   - TransparentFX
@@ -19,8 +22,8 @@ TagManager:
   - Mappa
   - Underground
   - Background
-  - 
-  - 
+  - Wall
+  - Confiner
   - 
   - 
   - 

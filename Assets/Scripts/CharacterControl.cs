@@ -8,26 +8,45 @@ public class CharacterControl : MonoBehaviour
 {
 
     private Rigidbody2D _rigidbody;
+    public Animator _animator;
+    public SpriteRenderer _sr;
     public float moveSpeed = 5f;
-    private float horVel;
-    private float verVel;
+    private float horizontal;
+    private float vertical;
+    private Underground _underground;
+
+    private bool isFlipped;
     
     // Start is called before the first frame update
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        horVel = Input.GetAxis("Horizontal")*moveSpeed;
-        verVel = Input.GetAxis("Vertical")*moveSpeed;
+        isFlipped = false;
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+        _sr = GetComponent<SpriteRenderer>();
+        _underground = GetComponent<Underground>();
     }
 
     private void FixedUpdate()
     {
 
-        _rigidbody.velocity = new Vector2(Mathf.Lerp(0, Input.GetAxis("Horizontal")*moveSpeed, 0.8f), Mathf.Lerp(0, verVel, 0.8f));
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
+
+        if (Input.GetKeyDown(KeyCode.Space) && !_underground.underground)
+        {
+            _underground.GoUnderground(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        }
+        
+
+        _rigidbody.velocity = new Vector2(Mathf.Lerp(0, horizontal*moveSpeed, 0.8f), Mathf.Lerp(0, vertical*moveSpeed, 0.8f));
+
+        _animator.SetFloat("horizontal", _rigidbody.velocity.x);
+        _animator.SetFloat("vertical", _rigidbody.velocity.y);
     }
+
+
+
+
 }
