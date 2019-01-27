@@ -27,8 +27,6 @@ public class Underground : MonoBehaviour
         int hori, vert;
         hori = (int) Mathf.Ceil(hor);
         vert = (int) Mathf.Ceil(ver);
-        Debug.Log("Hori:" +hori);
-        Debug.Log("Vert:" +vert);
         _characterControl.enabled = false;
         Animator.SetTrigger("Sand");
         Animator.SetBool("sand", true);
@@ -51,10 +49,56 @@ public class Underground : MonoBehaviour
 
     IEnumerator Move(int hori, int vert)
     {
-        while (!done)
+        if (hori > 0 && vert > 0)
         {
-            _rigidbody2D.velocity=new Vector2(Mathf.Lerp(0, hori*1f, 0.8f), Mathf.Lerp(0, vert*5f, 0.8f));
-            yield return new WaitForFixedUpdate();
+            while (!done)
+            {
+                _rigidbody2D.velocity= (Vector2.right+Vector2.up)*2f;  /*new Vector2(Mathf.Lerp(0, hori*5f, 0.8f), Mathf.Lerp(0, vert*5f, 0.8f));*/
+                yield return new WaitForSeconds(0.1f);
+            }
+        } else if (hori > 0 && vert == 0)
+        {
+            while (!done)
+            {
+                _rigidbody2D.velocity= (Vector2.right)*4f;  /*new Vector2(Mathf.Lerp(0, hori*5f, 0.8f), Mathf.Lerp(0, vert*5f, 0.8f));*/
+                yield return new WaitForSeconds(0.1f);
+            }
+        } else if (hori < 0 && vert > 0)
+        {
+            while (!done)
+            {
+                _rigidbody2D.velocity= (Vector2.left+Vector2.up)*2f;  /*new Vector2(Mathf.Lerp(0, hori*5f, 0.8f), Mathf.Lerp(0, vert*5f, 0.8f));*/
+                yield return new WaitForSeconds(0.1f);
+            }
+           
+        } else if (hori < 0 && vert == 0)
+        {
+            while (!done)
+            {
+                _rigidbody2D.velocity= (Vector2.left)*4f;  /*new Vector2(Mathf.Lerp(0, hori*5f, 0.8f), Mathf.Lerp(0, vert*5f, 0.8f));*/
+                yield return new WaitForSeconds(0.1f);
+            }
+        } else if (hori < 0 && vert < 0)
+        {
+            while (!done)
+            {
+                _rigidbody2D.velocity= (Vector2.left+Vector2.down)*2f;  /*new Vector2(Mathf.Lerp(0, hori*5f, 0.8f), Mathf.Lerp(0, vert*5f, 0.8f));*/
+                yield return new WaitForSeconds(0.1f);
+            }
+        } else if (hori == 0 && vert < 0)
+        {
+            while (!done)
+            {
+                _rigidbody2D.velocity= (Vector2.down)*4f;  /*new Vector2(Mathf.Lerp(0, hori*5f, 0.8f), Mathf.Lerp(0, vert*5f, 0.8f));*/
+                yield return new WaitForSeconds(0.1f);
+            }
+        } else if (hori > 0 && vert < 0)
+        {
+            while (!done)
+            {
+                _rigidbody2D.velocity= (Vector2.right+Vector2.down)*2f;  /*new Vector2(Mathf.Lerp(0, hori*5f, 0.8f), Mathf.Lerp(0, vert*5f, 0.8f));*/
+                yield return new WaitForSeconds(0.1f);
+            }
         }
     }
 }

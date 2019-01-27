@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +12,7 @@ public class GameUIManager : MonoBehaviour
     public GameObject mainCam;
     public GameObject canvas;
     public Animator Animator;
+    public bool Game_Over;
     
     [HideInInspector]
     public bool GameIsPaused;
@@ -23,6 +23,8 @@ public class GameUIManager : MonoBehaviour
 
     public void Start()
     {
+        Game_Over = false;
+        Animator.ResetTrigger("Death");
         if (player == null)
         {
             Instantiate(player);
@@ -63,8 +65,7 @@ public class GameUIManager : MonoBehaviour
             i++;
             if (i == 3)
             {
-                Destroy(player);
-                gameOver.SetActive(true);
+                GameOver();
             }
             intargetable = true;
             StartCoroutine(Invulnerability());
@@ -112,6 +113,14 @@ public class GameUIManager : MonoBehaviour
 
     public void QuitGame()
     {
+        Destroy(player);
         Application.Quit();
+    }
+
+    public void GameOver()
+    {
+        Game_Over = true;
+        Animator.SetTrigger("Death");
+        gameOver.SetActive(true);
     }
 }

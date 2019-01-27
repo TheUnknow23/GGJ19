@@ -7,13 +7,18 @@ using UnityEngine.SceneManagement;
 public class MenuGUIManager : MonoBehaviour
 {
     //Public variables
-    
+    public Animator Animator;
     
     //Methods
+    public void Start()
+    {
+        Animator.SetTrigger("Return");
+    }
+
     public void LoadGame()
     {
         StartCoroutine(LoadAsynchronous(SceneManager.GetActiveScene().buildIndex+1));
-        StartCoroutine(UnloadAsynchronous(SceneManager.GetActiveScene().buildIndex));
+        //StartCoroutine(UnloadAsynchronous(SceneManager.GetActiveScene().buildIndex));
     }
 
     IEnumerator LoadAsynchronous(int sceneIndex)

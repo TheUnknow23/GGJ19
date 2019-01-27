@@ -47,3 +47,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Rocce
+    uniqueID: 139020939
+    locked: 0
+  - name: Alghe
+    uniqueID: 2417356665
+    locked: 0
+  - name: Petrolio
+    uniqueID: 1560174137
+    locked: 0
+  - name: Mura
+    uniqueID: 61010411
+    locked: 0
+  - name: Bolle
+    uniqueID: 3492660401
+    locked: 0

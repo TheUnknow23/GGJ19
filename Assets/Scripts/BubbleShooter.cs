@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BubbleShooter : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
     public GameUIManager GameUIManager;
+    public Underground Underground;
 
     private bool pause = false;
 
@@ -19,9 +18,10 @@ public class BubbleShooter : MonoBehaviour
     void Update()
     {
         pause = GameUIManager.GameIsPaused;
-        if (Input.GetButtonDown("Fire1")&&!pause)
+        if (Input.GetButtonDown("Fire1")&&!pause&&!Underground.underground)
         {
             ShootBubble();
+            FindObjectOfType<AudioManager>().Play("Bubble");
         }
     }
 

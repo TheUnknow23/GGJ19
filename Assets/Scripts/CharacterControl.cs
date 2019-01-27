@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 
@@ -11,9 +9,11 @@ public class CharacterControl : MonoBehaviour
     public Animator _animator;
     public SpriteRenderer _sr;
     public float moveSpeed = 5f;
+    public Underground _underground;
+    
     private float horizontal;
     private float vertical;
-    private Underground _underground;
+    
 
     private bool isFlipped;
     

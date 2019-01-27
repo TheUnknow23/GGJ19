@@ -8,7 +8,6 @@ public class Bubble : MonoBehaviour
     public Rigidbody2D Rigidbody2D;
     private AlgaeBehaviour algae;
     
-    // Start is called before the first frame update
     void Start()
     {
         Physics2D.IgnoreLayerCollision(8, 12);
