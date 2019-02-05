@@ -8,11 +8,12 @@ public class CharacterControl : MonoBehaviour
     private Rigidbody2D _rigidbody;
     public Animator _animator;
     public SpriteRenderer _sr;
-    public float moveSpeed = 5f;
+    public float moveSpeed = 9f;
     public Underground _underground;
     
     private float horizontal;
     private float vertical;
+    private bool ismoving;
     
 
     private bool isFlipped;
@@ -20,7 +21,10 @@ public class CharacterControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if (StaticDataHolder.SecretRoom)
+        {
+            gameObject.transform.position = StaticDataHolder.PlayerPosition;
+        }
         isFlipped = false;
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
@@ -34,16 +38,22 @@ public class CharacterControl : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Space) && !_underground.underground)
+        /*if (Input.GetKeyDown(KeyCode.Space) && !_underground.underground)
         {
             _underground.GoUnderground(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        }
+        }*/
         
 
         _rigidbody.velocity = new Vector2(Mathf.Lerp(0, horizontal*moveSpeed, 0.8f), Mathf.Lerp(0, vertical*moveSpeed, 0.8f));
+        ismoving = _rigidbody.velocity != Vector2.zero;
 
         _animator.SetFloat("horizontal", _rigidbody.velocity.x);
         _animator.SetFloat("vertical", _rigidbody.velocity.y);
+    }
+
+    public bool isMoving()
+    {
+        return ismoving;
     }
 
 

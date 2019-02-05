@@ -53,8 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Boat.cs" />
-    <Compile Include="Assets\BottleDamage.cs" />
+    <Compile Include="Assets\Exit.cs" />
     <Compile Include="Assets\EZ Camera Shake\Demo\Sample Scripts\ShakeByDistance.cs" />
     <Compile Include="Assets\EZ Camera Shake\Demo\Sample Scripts\ShakeOnKeyPress.cs" />
     <Compile Include="Assets\EZ Camera Shake\Demo\Sample Scripts\ShakeOnTrigger.cs" />
@@ -63,28 +62,45 @@
     <Compile Include="Assets\EZ Camera Shake\Scripts\CameraShakePresets.cs" />
     <Compile Include="Assets\EZ Camera Shake\Scripts\CameraShaker.cs" />
     <Compile Include="Assets\EZ Camera Shake\Scripts\Utilities\CameraUtilities.cs" />
+    <Compile Include="Assets\FinalVideoScript.cs" />
+    <Compile Include="Assets\PlayerSpawn.cs" />
+    <Compile Include="Assets\Scene.cs" />
     <Compile Include="Assets\Scripts\AlgaeBehaviour.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\AudioManagerMenu.cs" />
     <Compile Include="Assets\Scripts\audioMixer.cs" />
+    <Compile Include="Assets\Scripts\Boat.cs" />
+    <Compile Include="Assets\Scripts\BottleDamage.cs" />
     <Compile Include="Assets\Scripts\Bubble.cs" />
     <Compile Include="Assets\Scripts\BubbleShooter.cs" />
+    <Compile Include="Assets\Scripts\buttonSoundEffects.cs" />
     <Compile Include="Assets\Scripts\CamFollowPlayer.cs" />
     <Compile Include="Assets\Scripts\CharacterControl.cs" />
     <Compile Include="Assets\Scripts\FaceMouse.cs" />
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
+    <Compile Include="Assets\Scripts\GameOver.cs" />
     <Compile Include="Assets\Scripts\GameUIManager.cs" />
     <Compile Include="Assets\Scripts\MenuGUIManager.cs" />
     <Compile Include="Assets\Scripts\OilBehaviour.cs" />
     <Compile Include="Assets\Scripts\Path.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\shellBehaviour.cs" />
+    <Compile Include="Assets\Scripts\shellBubble.cs" />
     <Compile Include="Assets\Scripts\Sound.cs" />
+    <Compile Include="Assets\Scripts\StaticDataHolder.cs" />
     <Compile Include="Assets\Scripts\ToggleMap.cs" />
+    <Compile Include="Assets\Scripts\Tutorial.cs" />
     <Compile Include="Assets\Scripts\Underground.cs" />
+    <Compile Include="Assets\Scripts\videoManager.cs" />
+    <Compile Include="Assets\Scripts\Videos.cs" />
+    <Compile Include="Assets\Scripts\Wall.cs" />
+    <Compile Include="Assets\Scripts\WallTrigger.cs" />
+    <Compile Include="Assets\Scripts\WallTriggerController.cs" />
+    <Compile Include="Assets\SecretTransport.cs" />
     <Compile Include="Assets\UB\EffectBase.cs" />
     <Compile Include="Assets\UB\HighEndMobilePostEffects\Shaders\D2FogsNoiseTexPE.cs" />
     <Compile Include="Assets\UB\HighEndMobilePostEffects\Shaders\D2FogsPE.cs" />
-    <Compile Include="Assets\Wall.cs" />
+    <Compile Include="Assets\VideoTrigger.cs" />
     <None Include="Assets\UB\HighEndMobilePostEffects\Shaders\D2Fogs.shader" />
     <None Include="Assets\UB\HighEndMobilePostEffects\Shaders\D2FogsNoiseTex.shader" />
     <Reference Include="Cinemachine">
@@ -664,6 +680,20 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Unity.Recorder.Editor.csproj">
+      <Project>{7BAED482-86AA-4729-BA50-13103589A94C}</Project>
+      <Name>Unity.Recorder.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Recorder.csproj">
+      <Project>{6C469F93-680D-EBB3-2B4F-7092BA821779}</Project>
+      <Name>Unity.Recorder</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Recorder.Samples.csproj">
+      <Project>{37AD798A-9FB4-8E86-EFD9-CA0C75EF8187}</Project>
+      <Name>Unity.Recorder.Samples</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -672,6 +702,46 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:\Program Files\Unity\Editor\Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Editor\Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:\Program Files\Unity\Editor\Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Editor\Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:\Program Files\Unity\Editor\Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Editor\Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:\Program Files\Unity\Editor\Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Editor\Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:\Program Files\Unity\Editor\Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

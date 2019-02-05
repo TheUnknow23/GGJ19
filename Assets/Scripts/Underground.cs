@@ -7,6 +7,7 @@ public class Underground : MonoBehaviour
 
     public GameObject Player;
     public Animator Animator;
+    public GameUIManager GameUiManager;
     [HideInInspector]
     public bool underground = false;
 
@@ -14,7 +15,7 @@ public class Underground : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private bool done = false;
 
-    void Start()
+    /*void Start()
     {
         Physics2D.IgnoreLayerCollision(9, 11);
         _characterControl = GetComponent<CharacterControl>();
@@ -25,15 +26,36 @@ public class Underground : MonoBehaviour
     public void GoUnderground(float hor, float ver)
     {
         int hori, vert;
-        hori = (int) Mathf.Ceil(hor);
-        vert = (int) Mathf.Ceil(ver);
+        hori = (int) Mathf.Clamp(hor, -1, 1);
+        vert = (int) Mathf.Clamp(ver, -1, 1);
         _characterControl.enabled = false;
         Animator.SetTrigger("Sand");
         Animator.SetBool("sand", true);
         gameObject.layer = 9;
         underground = true;
         StartCoroutine(Wait());
-        StartCoroutine(Move(hori, vert));
+        if (hori > 0 && vert > 0)
+        {
+            _rigidbody2D.velocity= (Vector2.right+Vector2.up)*2f;
+        } if (hori > 0 && vert == 0)
+        {
+            _rigidbody2D.velocity= (Vector2.right)*4f;  
+        } else if (hori < 0 && vert > 0)
+        {
+            _rigidbody2D.velocity= (Vector2.left+Vector2.up)*2f;
+        } else if (hori < 0 && vert == 0)
+        {
+            _rigidbody2D.velocity = (Vector2.left) * 4f;
+        } else if (hori < 0 && vert < 0)
+        {
+            _rigidbody2D.velocity= (Vector2.left+Vector2.down)*2f;
+        } else if (hori == 0 && vert < 0)
+        {
+            _rigidbody2D.velocity= (Vector2.down)*4f;
+        } else if (hori > 0 && vert < 0)
+        {
+            _rigidbody2D.velocity= (Vector2.right+Vector2.down)*2f;
+        }
     }
 
     IEnumerator Wait()
@@ -45,60 +67,10 @@ public class Underground : MonoBehaviour
         Animator.ResetTrigger("Sand");
         Animator.SetBool("sand", false);
         _characterControl.enabled = true;
-    }
+    }*/
 
-    IEnumerator Move(int hori, int vert)
+    void GameOver()
     {
-        if (hori > 0 && vert > 0)
-        {
-            while (!done)
-            {
-                _rigidbody2D.velocity= (Vector2.right+Vector2.up)*2f;  /*new Vector2(Mathf.Lerp(0, hori*5f, 0.8f), Mathf.Lerp(0, vert*5f, 0.8f));*/
-                yield return new WaitForSeconds(0.1f);
-            }
-        } else if (hori > 0 && vert == 0)
-        {
-            while (!done)
-            {
-                _rigidbody2D.velocity= (Vector2.right)*4f;  /*new Vector2(Mathf.Lerp(0, hori*5f, 0.8f), Mathf.Lerp(0, vert*5f, 0.8f));*/
-                yield return new WaitForSeconds(0.1f);
-            }
-        } else if (hori < 0 && vert > 0)
-        {
-            while (!done)
-            {
-                _rigidbody2D.velocity= (Vector2.left+Vector2.up)*2f;  /*new Vector2(Mathf.Lerp(0, hori*5f, 0.8f), Mathf.Lerp(0, vert*5f, 0.8f));*/
-                yield return new WaitForSeconds(0.1f);
-            }
-           
-        } else if (hori < 0 && vert == 0)
-        {
-            while (!done)
-            {
-                _rigidbody2D.velocity= (Vector2.left)*4f;  /*new Vector2(Mathf.Lerp(0, hori*5f, 0.8f), Mathf.Lerp(0, vert*5f, 0.8f));*/
-                yield return new WaitForSeconds(0.1f);
-            }
-        } else if (hori < 0 && vert < 0)
-        {
-            while (!done)
-            {
-                _rigidbody2D.velocity= (Vector2.left+Vector2.down)*2f;  /*new Vector2(Mathf.Lerp(0, hori*5f, 0.8f), Mathf.Lerp(0, vert*5f, 0.8f));*/
-                yield return new WaitForSeconds(0.1f);
-            }
-        } else if (hori == 0 && vert < 0)
-        {
-            while (!done)
-            {
-                _rigidbody2D.velocity= (Vector2.down)*4f;  /*new Vector2(Mathf.Lerp(0, hori*5f, 0.8f), Mathf.Lerp(0, vert*5f, 0.8f));*/
-                yield return new WaitForSeconds(0.1f);
-            }
-        } else if (hori > 0 && vert < 0)
-        {
-            while (!done)
-            {
-                _rigidbody2D.velocity= (Vector2.right+Vector2.down)*2f;  /*new Vector2(Mathf.Lerp(0, hori*5f, 0.8f), Mathf.Lerp(0, vert*5f, 0.8f));*/
-                yield return new WaitForSeconds(0.1f);
-            }
-        }
+        GameUiManager.GameOverOverlay();
     }
 }

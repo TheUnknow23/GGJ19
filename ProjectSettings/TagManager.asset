@@ -50,6 +50,9 @@ TagManager:
   - name: Rocce
     uniqueID: 139020939
     locked: 0
+  - name: Shell
+    uniqueID: 2118704833
+    locked: 0
   - name: Alghe
     uniqueID: 2417356665
     locked: 0
@@ -61,4 +64,7 @@ TagManager:
     locked: 0
   - name: Bolle
     uniqueID: 3492660401
+    locked: 0
+  - name: GUI
+    uniqueID: 3399717187
     locked: 0

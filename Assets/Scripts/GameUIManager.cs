@@ -12,17 +12,34 @@ public class GameUIManager : MonoBehaviour
     public GameObject mainCam;
     public GameObject canvas;
     public Animator Animator;
-    public bool Game_Over;
+    public CharacterControl CharacterControl;
+
     
     [HideInInspector]
+    public bool Game_Over;
+    [HideInInspector]
     public bool GameIsPaused;
+    
     bool mapVisible = false;
 
     private int i = 0;
     private bool intargetable = false;
 
+    public void Awake()
+    {
+        Instantiate(player, StaticDataHolder.PlayerPosition, Quaternion.identity);
+        player = player.gameObject;
+    }
+
     public void Start()
     {
+        /*if (StaticDataHolder.SecretRoom)
+        {
+            player.transform.position = StaticDataHolder.PlayerPosition;
+        }*/
+        
+        
+        Animator.SetBool("death", false);
         Game_Over = false;
         Animator.ResetTrigger("Death");
         if (player == null)
@@ -88,12 +105,12 @@ public class GameUIManager : MonoBehaviour
     {
         StartCoroutine(LoadAsynchronous(SceneManager.GetActiveScene().buildIndex-1));
         Destroy(player);
-        StartCoroutine(UnloadAsynchronous(SceneManager.GetActiveScene().buildIndex));
+        //StartCoroutine(UnloadAsynchronous(SceneManager.GetActiveScene().buildIndex));
     }
     
     IEnumerator LoadAsynchronous(int sceneIndex)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+        AsyncOperation operation = SceneManager.LoadSceneAsync("Scenes/1 - Menu");
 
         while (!operation.isDone)
         {
@@ -119,8 +136,16 @@ public class GameUIManager : MonoBehaviour
 
     public void GameOver()
     {
-        Game_Over = true;
+        CharacterControl.enabled = false;
+        Rigidbody2D rigidbody2D = player.GetComponent<Rigidbody2D>();
+        rigidbody2D.velocity = Vector2.zero;
         Animator.SetTrigger("Death");
+        Animator.SetBool("death", true);
+        Game_Over = true;
+    }
+
+    public void GameOverOverlay()
+    {
         gameOver.SetActive(true);
     }
 }

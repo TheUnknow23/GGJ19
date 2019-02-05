@@ -3,12 +3,25 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class MenuGUIManager : MonoBehaviour
 {
     //Public variables
     public Animator Animator;
-    
+
+    public GameObject loadingScreen;
+
+    public GameObject videoScreen;
+    public GameObject artbook;
+    private VideoPlayer videoPlayer;
+
+
+    public Slider slider;
+    public GameObject[] bolle;
+
+
     //Methods
     public void Start()
     {
@@ -21,12 +34,34 @@ public class MenuGUIManager : MonoBehaviour
         //StartCoroutine(UnloadAsynchronous(SceneManager.GetActiveScene().buildIndex));
     }
 
+    public void LoadVideo() {
+        videoScreen.SetActive(true);
+        artbook.SetActive(true);
+        videoPlayer = artbook.GetComponent<VideoPlayer>();
+        videoPlayer.Play();
+
+        videoPlayer.loopPointReached += EndVideo;
+    }
+
+    void EndVideo(VideoPlayer videoPlayerFinal){
+        videoScreen.SetActive(false);
+    }
+
     IEnumerator LoadAsynchronous(int sceneIndex)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+        AsyncOperation operation = SceneManager.LoadSceneAsync("Scenes/2 - VignettaInizio");
+
+        loadingScreen.SetActive(true);
+
+        for (int i = 0; i < bolle.Length; i++)
+        {
+            bolle[i].SetActive(false);
+        } 
 
         while (!operation.isDone)
         {
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+            slider.value = progress;
             yield return null;
         }
     }

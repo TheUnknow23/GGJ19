@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AlgaeBehaviour : MonoBehaviour
 {
@@ -11,6 +9,7 @@ public class AlgaeBehaviour : MonoBehaviour
     {
         if (life == 0)
         {
+            FindObjectOfType<AudioManager>().Play("Algae");
             Destroy(gameObject);
         }
     }
